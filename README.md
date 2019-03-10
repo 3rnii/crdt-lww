@@ -6,14 +6,14 @@ Please note that this is written in Javascript.
 ## Getting Started
 
 1) Run the following:
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
 2) To start testing, run:
-```bash
-npm test
-```
+    ```bash
+    npm test
+    ```
 
 ## Notes
 The code written in this repository takes assumption that the timestamps given can be determined by the user of these sets.
