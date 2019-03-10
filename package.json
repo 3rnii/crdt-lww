@@ -1,0 +1,18 @@
+{
+  "name": "goodnotes-crdt-lww",
+  "version": "1.0.0",
+  "description": "Challenge to create a LWW-CRDT",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "author": "Ernest Chiu",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.3.4",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.3.1",
+    "jest": "^24.3.1"
+  }
+}
