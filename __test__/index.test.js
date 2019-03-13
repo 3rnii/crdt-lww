@@ -96,5 +96,46 @@ describe('CRDT Set - LWW', () => {
     set.add('Jill', 10);
 
     expect(set.size()).toEqual(2);
-  })
+  });
+
+  it('Checks if the current value is the latest entry', () => {
+    const set = new LWWSet();
+    set.add("Bob", 1);
+    set.add("Jack", 2);
+    set.add('Mary', 5);
+    set.remove('Jack', 7);
+    set.remove('Bob', 9);
+    set.add('Jill', 10);
+
+    expect(set.isLatest('Mary')).toBeFalsy();
+    expect(set.isLatest('Jill')).toBeTruthy();
+  });
+
+  it('Checks if a value exists in the set', () => {
+    const set = new LWWSet();
+    set.add("Bob", 1);
+    set.add("Jack", 2);
+    set.add('Mary', 5);
+    set.remove('Jack', 7);
+    set.remove('Bob', 9);
+    set.add('Jill', 10);
+
+    expect(set.has('Bob')).toBeFalsy();
+    expect(set.has('Jack')).toBeFalsy();
+    expect(set.has('Mary')).toBeTruthy();
+    expect(set.has('Jill')).toBeTruthy();
+    expect(set.has('Zack')).toBeFalsy();
+  });
+
+  it('Gets the latest value in a set', () => {
+    const set = new LWWSet();
+    set.add("Bob", 1);
+    set.add("Jack", 2);
+    set.add('Mary', 5);
+    set.remove('Jack', 7);
+    set.remove('Bob', 9);
+    set.add('Jill', 10);
+
+    expect(set.getLatest()).toEqual('Jill');
+  });
 });

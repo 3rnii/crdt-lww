@@ -35,7 +35,25 @@ export default class LWWSet {
     return result;
   }
 
+  getLatest() {
+    const union = this.get();
+
+    return union[union.length - 1];
+  }
+
   size() {
     return this.get().length;
+  }
+
+  isLatest(value) {
+    const union = this.get();
+
+    return value === union[union.length - 1];
+  }
+
+  has(value) {
+    const union = this.get();
+
+    return union.filter(item => value === item).length >= 1;
   }
 }
